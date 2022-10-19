@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora&family=Noto+Serif+Gujarati&family=Nunito&display=swap" rel="stylesheet">
+        <title>{{ therapist.user.username }}</title>
+    </head>
+    <body>
+    <a href="/"><svg xmlns="http://www.w3.org/2000/svg" class="back" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></a>
+    <img src="{% static '2.png' %}" alt="Profile Picture" class='pfp'>
+
+    <h1 class='title'>{{ therapist.user.first_name }}</h1>
+    <div class='time'>
+    <h4 class="t1">Working Hours:</h4>
+    <p class="t2">From: {{ therapist.from_time }}</p>
+    <p class="t2">To: {{ therapist.to_time }}</p>
+    </div>
+
+    <div class='add' style="width: 10em;">
+    <h4 class="t1">Address:</h4>
+    <p class="t2">{{ therapist.address }}</p>
+    </div>
+
+    <div class="circle"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <img src="{% static 'blob.png' %}" class="blob">
+    <img src="{% static 'line 4.png' %}" class="line">
+    <img src="{% static 'line 2.png' %}" class="line1">
+    <img src="{% static 'line 2.png' %}" class="line2">
+    <img src="{% static 'line 4.png' %}" class="line3">
+    
+    <img src="{% static 'blob.png' %}" class="desc">
+
+   <form action="/profile/{{ therapist.user.username }}" method='POST'>
+    {% csrf_token %}
+    {% if success == False %}    
+    <input type="submit" value="Request Appointment" class="request">
+    {% endif %}
+   </form>
+   <img src={% static 'Mentify.png'%} style="width: 10em;position: absolute; bottom: 0; left: 0; z-index: 99;">
+<link href="{% static 'profile.css' %}" rel="stylesheet">
+</body>
+<script>
+    if ("{{success}}" == "True"){
+    Notification.requestPermission().then(function (permission) {
+        
+    });
+    var notification = new Notification('Sent', {body:'email has been sent', icon:'https://homepages.cae.wisc.edu/~ece533/images/airplane.png'});
+    notification.onclick = function(){
+                            window.parent.focus();
+                            notification.close();
+                            }
+    setTimeout(() => notification.close(), 10*1000);
+}
+        
+</script>
+</html>

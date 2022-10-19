@@ -1,0 +1,126 @@
+{% load static %}
+<div class="Head">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora&family=Noto+Serif+Gujarati&family=Nunito&display=swap" rel="stylesheet">
+		{% for x in therapist%}
+	
+
+	<div class="card">
+		<div class="card-content">
+		  <div class="media">
+			<div class="media-left">
+			  <figure class="image is-48x48">
+				<img src="{% static '2.png' %}">
+			  </figure>
+			</div>
+			<div class="media-content">
+				<a href='/profile/{{x.user.username}}'>
+			  <p class="title is-4">{{ x.user.first_name }}</p>
+			  <p class="subtitle is-6">{{ x.user.username }}</p>
+			</a>
+			</div>
+		  </div>
+		  <div class="content">
+			<p>{{ x.address }}</p>
+			<p>{{ x.pin }}</p>
+			<p>{{ x.field }} Therapist</p>
+			<a>{{x.user.email}}</a>
+			<br>
+			From: {{ x.from_time }} <br>
+			To: {{ x.to_time }}
+		  </div>
+		</div>
+	  </div>
+	{% endfor %}
+</div>
+<img src={% static 'Mentify.png'%} style="width: 10em;position: absolute; bottom: 0; left: 0; z-index: 99;">
+<a href="/"><svg xmlns="http://www.w3.org/2000/svg" class="back" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></a>
+<style>
+
+	.back{
+		position: absolute;
+		top: 1.8em;
+		left: 2em;
+		font-size: 1em;
+		width: 2em;
+		height: 2em;
+	}
+	.card{
+		height: 25em;
+	}
+	.Head {
+		display: grid;
+		transform: translateY(10vh);
+		width: 100vw;
+		height: 100vh;
+		padding: 0vw 5vw;
+		grid-template-columns: auto auto auto auto;
+		column-gap: 5vw;
+	}
+	
+	.img{
+		height: 100%;
+		width: 100%;
+	}
+
+	.crdupper{
+		display: grid;
+		grid-template-columns: auto 90%;
+		align-items: center;
+		width: 100%;
+		height: auto;
+	}
+
+	.pfp{
+		width: 7em;
+		height: 7em;
+	}
+
+	.nm{
+		height: 100%;
+		width: 80%;
+		display: grid;
+		justify-content: center;
+		align-items: center;
+
+	}
+
+	.nm{
+		font-size: 1.3rem;
+		font-family: "Nunito", sans-serif;
+	}
+
+	.crd {
+		display: grid;
+		width: 20vw;
+		height: 20vw;
+		margin-bottom: 5vw;
+		border-radius: 3%;
+		-webkit-box-shadow: 0px 0px 120px -30px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 120px -30px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 120px -30px rgba(0,0,0,0.75);
+		transition: -webkit-box-shadow 0.2s linear;
+		transition: -moz-box-shadow 0.2s linear;
+		transition: box-shadow 0.2s linear;
+		grid-template-rows: auto 80%;
+		padding: 5vw 5vh;
+		align-items: center;
+    }
+
+	.crd:hover{
+		-webkit-box-shadow: 0px 0px 120px -10px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 120px -10px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 120px -10px rgba(0,0,0,0.75);
+		transition: -webkit-box-shadow 0.2s linear;
+		transition: -moz-box-shadow 0.2s linear;
+		transition: box-shadow 0.2s linear;
+	}
+
+	@media only screen and (height: 667px) {
+		.Head {
+			transform: translateY(10vh);
+		}
+	}
+</style>

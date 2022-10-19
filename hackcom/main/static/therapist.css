@@ -1,0 +1,288 @@
+.formcard {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30em;
+    -webkit-box-shadow: 0px 0px 100px -40px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 100px -40px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 100px -40px rgba(0, 0, 0, 0.75);
+  }
+  
+  
+  body {
+    overflow: hidden;
+    overflow-y: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  .formcard {
+    overflow: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30em;
+    z-index: 122;
+    -webkit-animation-name: appear;
+    animation-name: appear;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+  }
+  
+  .bg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 43em;
+    height: 45em;
+    z-index: 122;
+  }
+  
+  
+  nav {
+    position: fixed;
+    display: flex;
+    z-index: 1000;
+    margin-top: 1.3em;
+    margin-left: -0.4em;
+    padding-left: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul a {
+    padding-left: 2rem;
+    text-decoration: none;
+    color: black;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: black;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+  }
+  
+  
+  input {
+    background-color: #faf4f5;
+  }
+  
+  
+  .blob {
+    position: absolute;
+    left: -16em;
+    bottom: -17em;
+    z-index: -1231;
+    -webkit-animation-name: blob;
+    animation-name: blob;
+    -webkit-animation-duration: 1.8s;
+    animation-duration: 1.8s;
+    display: none;
+  }
+  
+  @-webkit-keyframes appear {
+    0% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+  }
+  
+  @-webkit-keyframes line {
+    0% {
+      left: -80%;
+      rotate: -100deg;
+    }
+  }
+  
+  @keyframes line {
+    0% {
+      left: -80%;
+      rotate: -100deg;
+    }
+  }
+  
+  @-webkit-keyframes blob {
+    0% {
+      top: -80%;
+      rotate: -100deg;
+    }
+  }
+  
+  @keyframes blob {
+    0% {
+      top: -80%;
+      rotate: -100deg;
+    }
+  }
+  
+  @-webkit-keyframes line3 {
+    0% {
+      right: -80%;
+      rotate: -100deg;
+    }
+  }
+  
+  @keyframes line3 {
+    0% {
+      right: -80%;
+      rotate: -100deg;
+    }
+  }
+  
+  @-webkit-keyframes line1 {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes line1 {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .line {
+    position: absolute;
+    left: -38.7em;
+    bottom: -37em;
+    rotate: -275deg;
+    height: 67em;
+    z-index: 1;
+    -webkit-animation-name: line;
+    animation-name: line;
+    -webkit-animation-duration: 1.4s;
+    animation-duration: 1.4s;
+  }
+  
+  .line1 {
+    position: absolute;
+    left: -45.7em;
+    bottom: -23em;
+    rotate: 25deg;
+    height: 67em;
+    z-index: -213;
+    -webkit-animation-name: line;
+    animation-name: line;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+  }
+  
+  .line4 {
+    position: absolute;
+    right: -38.7em;
+    top: -37em;
+    rotate: 25deg;
+    height: 67em;
+    z-index: 1;
+    -webkit-animation-name: line;
+    animation-name: line;
+    -webkit-animation-duration: 1.4s;
+    animation-duration: 1.4s;
+  }
+  
+  .line3 {
+    position: absolute;
+    right: -45.7em;
+    top: -23em;
+    rotate: -275deg;
+    height: 67em;
+    z-index: -213;
+    -webkit-animation-name: line;
+    animation-name: line;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+  }
+  
+  
+  .circle {
+    background-color: rgb(204, 61, 61);
+    width: 5em;
+    aspect-ratio: 1;
+    position: absolute;
+    z-index: 2000;
+    border-radius: 50em;
+    right: 5em;
+    top: 37em;
+    -webkit-animation-name: appear;
+    animation-name: appear;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    
+  }
+  
+  .circle1 {
+    background-color: rgb(233, 183, 76);
+    width: 4em;
+    aspect-ratio: 1;
+    position: absolute;
+    z-index: 2000;
+    border-radius: 50em;
+    left: 12em;
+    bottom: 39.6em;
+    -webkit-animation-name: appear;
+    animation-name: appear;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+  }
+  
+  .circle2 {
+    background-color: rgb(88, 65, 218);
+    width: 3em;
+    aspect-ratio: 1;
+    position: absolute;
+    z-index: 2000;
+    border-radius: 50em;
+    left: 8em;
+    bottom: 3em;
+    -webkit-animation-name: appear;
+    animation-name: appear;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+  }
+  
+  .circle3 {
+    background-color: rgb(63, 156, 51);
+    width: 3em;
+    aspect-ratio: 1;
+    position: absolute;
+    z-index: 2000;
+    border-radius: 50em;
+    right: 27em;
+    top: 4em;
+    -webkit-animation-name: appear;
+    animation-name: appear;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+  }
+  
+  
+  /*# sourceMappingURL=signup.css.map */

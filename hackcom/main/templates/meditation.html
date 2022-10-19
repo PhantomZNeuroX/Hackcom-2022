@@ -1,0 +1,329 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora&family=Noto+Serif+Gujarati&family=Nunito&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meditation</title>
+	<link rel="stylesheet" href="{% static 'login.css' %}">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
+	<style>
+		.vid{
+			position: absolute;
+			left: 50%;
+			top: 45%;
+			transform: translate(-50%, -50%);
+			width: 30em;
+		}
+
+		.title{
+			position: absolute;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			top: 10%;
+			font-size: 3rem;
+			font-family: Nunito, sans-serif;
+			-webkit-animation-name: appear;
+			animation-name: appear;
+			-webkit-animation-duration: 2s;
+			animation-duration: 2s;
+
+		}
+		.slider{
+			position: absolute;
+			top: 77%;
+			left: 50%;
+			width: 30vh;
+			transform: translate(-50%, -50%);
+		}
+
+		.back{
+			position: absolute;
+			top: 1.8em;
+			left: 2em;
+			font-size: 1em;
+			width: 2em;
+			height: 2em;
+		}
+
+		.pause{
+			background-color: #faf4f5;
+			position: absolute;
+			top: 84%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			font-family: 'Manrope', sans-serif;
+			font-size: 1rem;
+			outline: none;
+			border: 2px solid #000000;
+			border-radius: 6em;
+			padding: 0.4em 0.8em;
+			-webkit-box-shadow: 0px 0px 120px -30px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 0px 120px -30px rgba(0,0,0,0.75);
+			box-shadow: 0px 0px 120px -30px rgba(0,0,0,0.75);
+		}
+
+		.timer{
+			position: absolute;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			top: 29%;
+			font-size: 8rem;
+			font-family: Manrope, sans-serif;
+			-webkit-animation-name: appear;
+			animation-name: appear;
+			-webkit-animation-duration: 2s;
+			animation-duration: 2s;
+		}
+			.pop{
+				background-color: #faf4f5;
+				position: absolute;
+				top: 89%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+	
+				font-family: 'Manrope', sans-serif;
+				font-size: 0.5rem;
+				outline: none;
+				border: 0.6px solid #000000;
+				border-radius: 50em;
+				padding: 0.4em 0.8em;
+			}
+		
+			.q-popup-wrap{
+				position: fixed;
+				left: 0px;
+				right: 0px;
+				top:0px;
+				bottom: 0px;
+				z-index: 100;
+				display: none;
+			}
+			.q-popup-wrap-wrap{
+				height: 100vh;
+				display: flex;
+				text-align: center;
+				align-items: center;
+				justify-content: center;
+				z-index: 101;
+			}
+			.q-popup-back{
+				position: absolute;
+				left: 0px;
+				right: 0px;
+				top:0px;
+				bottom: 0px;
+				background: rgba(0, 0, 0, 0.411);
+			}
+			.q-popup{
+				position: relative;
+				background: white;
+				width: 50vw;
+				height: 30vh;
+				border-radius: 10px;
+				overflow: auto;
+				transform: scale(0.1);
+				transition: 0.4s;
+			}
+			.q-popup.animate{
+				transform: scale(1);
+			}
+			.q-popup-title{
+				text-align: left;
+				padding: 50px;
+				padding-bottom: 0px;
+			}
+			.q-popup-content{
+				text-align: left;
+				padding: 50px;
+				padding-top: 0px;
+			}
+			.q-popup-close{
+				position: absolute;
+				top: 50px;
+				right: 50px;
+				font-size: 25px;
+				cursor: pointer;
+			}
+		
+	</style>
+</head>
+<body>
+	<div class="q-popup-wrap">
+		<div class="q-popup-back" onclick="popUpClose()">
+		</div>
+		<div class="q-popup-wrap-wrap">
+			<div class="q-popup">
+				<i class="far fa-times q-popup-close" onclick="popUpClose()"></i>
+				<div class="q-popup-title">
+					<span class="q-heading">
+						
+					</span>
+					<br>
+					<div class="q-popup-subtitle">
+						
+					</div>
+				</div>
+				<br>
+				<div class="q-popup-content">
+						
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<video src='{% static "saas_lo_do.mp4" %}' loop autoplay muted class='vid'></video>
+	<a href="/"><svg xmlns="http://www.w3.org/2000/svg" class="back" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></a>
+	<input type="range" min="60" max="3600" value="50" class="slider" id="myRange">
+	<input type="button" id="startPomo" value="start" class="pause">
+	<input type="button" id="stopPomo" value="stop" class="hidden pause">
+	<button class='pop' onclick=(popUp(0))>i</button>
+	<div class="timer">00:01:00</div>
+
+	<h1 class="title">Meditation Timer</h1>
+	
+	<!-- <video src="{% static 'ladki_saas_lo.mp4'%}" class='vid' loop></video> -->
+
+	<img src="{% static 'line 4.png' %}" class="line">
+	<img src="{% static 'line 2.png' %}" class="line1">
+	<img src="{% static 'line 4.png' %}" class="line4">
+	<img src="{% static 'line 2.png' %}" class="line3">
+
+	<div class="circle crcl"></div>
+	<div class="circle1 crcl"></div>
+	<div class="circle2 crcl"></div>
+	<div class="circle3 crcl"></div>
+	<img src={% static 'Mentify.png'%} style="width: 10em;position: absolute; bottom: 0; left: 0; z-index: 99;">
+</body>
+<script>
+	eventDetails = [];
+    eventDetails[0] = ["Meditation Timer","","Meditation isn’t about becoming a different person, a new person, or even a better person. It’s about training in awareness and getting a healthy sense of perspective. You’re not trying to turn off your thoughts or feelings. You’re learning to observe them without judgment. And eventually, you may start to better understand them as well."];
+    
+    function popUp(x){
+        
+        $('.q-popup-wrap').fadeToggle(400);
+        $('.q-popup').toggleClass('animate');
+        var title = eventDetails[x][0];
+        var subtitle = eventDetails[x][1];
+        var content = eventDetails[x][2];
+        $('.q-popup-title .q-heading').html(title);
+        $('.q-popup-title .q-popup-subtitle').html(subtitle);
+        $('.q-popup-content').html(content);
+    }
+    function popUpClose(){
+        $('.q-popup-wrap').fadeToggle(400);
+        $('.q-popup').toggleClass('animate');
+    }
+
+
+	function convertHMS(value) {
+		const sec = parseInt(value, 10);
+		let hours = Math.floor(sec / 3600);
+		let minutes = Math.floor((sec - (hours * 3600)) / 60);
+		let seconds = sec - (hours * 3600) - (minutes * 60);
+		if(hours < 10) hours = Number("0"+hours.toString());
+		if(minutes < 10) minutes = Number("0"+minutes.toString());
+		if (seconds < 10) seconds = Number("0" + seconds.toString());
+		return [hours,minutes,seconds];
+	}
+
+	document.getElementById("myRange").oninput = () =>{
+		if (started == false){
+			let val = document.getElementById("myRange").value;
+			let t = convertHMS(val);
+			dv.innerHTML = t.join(":")
+		}
+	}
+
+	document.getElementById("startPomo").addEventListener("click", ()=>{
+		started = true
+		let val = document.getElementById("myRange").value
+		t1 = convertHMS(val);
+		console.log("Foo")
+		document.getElementById("stopPomo").classList.toggle("hidden");
+		document.getElementById("startPomo").classList.toggle("hidden");
+		setmode();
+	});
+
+	document.getElementById("stopPomo").addEventListener("click", () => {
+		started = false
+		let val = document.getElementById("myRange").value
+		t1 = [00, 00, 00];
+		document.getElementById("stopPomo").classList.toggle("hidden");
+		document.getElementById("startPomo").classList.toggle("hidden");
+		document.getElementById("myRange").value == 1;
+		setmode();
+	});
+
+	let t1 = [00, 01, 00]
+	let started = false;
+	let dv = document.querySelector(".timer")
+	let setmode = () => {
+			const interval = setInterval(() => {
+				if (t1[2] == 00) {
+					if (t1[1] == 00) {
+						if (t1[0] == 00) {
+							clearInterval(interval);
+							started = false;
+							document.getElementById("stopPomo").classList.toggle("hidden");
+							document.getElementById("startPomo").classList.toggle("hidden");
+							t1 = [00, 01, 00]
+						} else {
+							t1 = [t1[0] - 1, 59, 59]
+						}
+					} else {
+						t1 = [t1[0], t1[1] - 1, 59]
+					}
+				} else {
+					t1 = [t1[0], t1[1], t1[2] - 1]
+				} 
+				if(started ==false){
+					clearInterval(interval);
+					t1 = [00, 01, 00]
+				}
+				dv.innerHTML = t1.join(":");
+			}, 1000);
+		}
+		//setmode(1)
+</script>
+<style>
+	.hidden{
+		display: none;
+	}
+</style>
+<script>
+	$(document).ready(function () {
+		animateDiv('.circle');
+		animateDiv('.circle1');
+		animateDiv('.circle2');
+		animateDiv('.circle3');
+	});
+
+	function makeNewPosition() {
+
+		// Get viewport dimensions (remove the dimension of the div)
+		var h = $(window).height() - 50;
+		var w = $(window).width() - 50;
+
+		var nh = Math.floor(Math.random() * h);
+		var nw = Math.floor(Math.random() * w);
+
+		return [nh, nw];
+
+	}
+
+	function animateDiv(myclass) {
+		var newq = makeNewPosition();
+		$(myclass).animate({ top: newq[0], left: newq[1] }, 50000, function () {
+			animateDiv(myclass);
+		});
+
+	};
+</script>
+</html>

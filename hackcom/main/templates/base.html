@@ -1,0 +1,61 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Noto+Serif+Gujarati&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'base.css'%}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="meditation">Meditation</a></li>
+            <li><a href="pomodoro">Pomodoro</a></li>
+            <li><a href="therapist/search">Therapist</a></li>
+            <li><a href="therapist/signup">Become a Therapist</a></li>
+        </ul>
+
+        {% if user.is_authenticated%}
+        <a href="logout">
+        <img src='{% static 'pfp.png' %}' class="pfp">
+        </a>
+        {% else %}
+        <div>
+        <a href="login">Login</a>
+        <a href="signup" style='margin-left:1.4em;margin-right:1.4em;'>Signup</a>
+        </div>
+        {%endif%}
+    </nav>
+    <img src={% static 'Mentify.png'%} style="width: 10em;position: absolute; bottom: 0; left: 0; z-index: 99;">
+	{% if user.is_authenticated%}
+    <h1 class="title">Good Morning {{user.first_name}}!</h1>
+	{%else%}
+	<h1 class="title">Good Morning!</h1>
+	{%endif%}
+
+    <h1 class="title2">Take care of your mental Health!</h1>
+    <h1 class="title3">“Life doesn’t make any sense without interdependence. We need each other, and the sooner we learn that, the better for us all.”<br>  — Erik Erikson</h1>
+    <img src="{% static 'saas_lo.gif' %}" class='circle'>
+    <div class="circle"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <img src="{% static 'blob.png' %}" class="blob">
+    <img src="{% static 'line 4.png' %}" class="line">
+    <img src="{% static 'line 2.png' %}" class="line1">
+    <img src="{% static 'line 2.png' %}" class="line2">
+    <img src="{% static 'line 4.png' %}" class="line3">
+
+    <a href="form">
+        <button class='journal'>
+            Health
+        </button>
+    </a>
+</body>
+</html>

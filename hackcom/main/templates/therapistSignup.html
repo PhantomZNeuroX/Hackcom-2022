@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora&family=Noto+Serif+Gujarati&family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Signup</title>
+</head>
+
+<body>
+  <a href="/"><svg xmlns="http://www.w3.org/2000/svg" class="back" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></a>
+  <h1 class='title'>Become a Therapist!</h1>
+  <div class="Head">
+    <div class="card">
+      <div class="Cardinner">
+        <div class="content">
+          <form method="POST" action="/therapist/signup">
+            {% csrf_token %}
+            <div class="field">
+              <label class="label">Full Name</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Full Name" name="name">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Username</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Username" name="username">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </div>
+              <p class="help is-danger">{{usr}}</p>
+            </div>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Email input" name="email">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="sex">
+                Male
+              </label>
+              <label class="radio">
+                <input type="radio" name="sex">
+                Female
+              </label>
+              <label class="radio">
+                <input type="radio" name="sex">
+                Other
+              </label>
+            </div>
+
+            <div class="field">
+              <label class="label">age</label>
+              <div class="control">
+                <input class="input" type="number" placeholder="Age" name="age">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Field of Expertise</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Field" name="field">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Phone Number</label>
+              <div class="control">
+                <input class="input" type="number" placeholder="Phone Number" name="Number">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Pincode</label>
+              <div class="control">
+                <input class="input" type="number" placeholder="Pincode" name="pincode">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Address</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Address" name="address">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Available Timings</label>
+              <div class="control">
+                <div class="timings">
+                  <div class="signupFormFrom">
+                    <h6 class="subheading is-6">From:</h6><input class="input" type="time"
+                      placeholder="Available Timings" name="from">
+                  </div>
+                  <div class="signupFormTo">
+                    <h6 class="subheading is-6">To:</h6><input class="input" type="time" placeholder="Available Timings"
+                      name="to">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input class="input" type="password" name="pass1" placeholder="Password">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Confirm Password</label>
+              <div class="control">
+                <input class="input" type="password" name="pass2" placeholder="Confirm Password">
+              </div>
+              <p class="help is-danger">{{pas}}</p>
+            </div>
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  I agree to the <a href="#">terms and conditions</a>
+                </label>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
+              <div class="control">
+                <a href="/" class="button is-link is-light">Cancel</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <img src="{% static 'line 4.png' %}" class="line">
+  <img src="{% static 'line 2.png' %}" class="line1">
+  <img src="{% static 'line 4.png' %}" class="line4">
+  <img src="{% static 'line 2.png' %}" class="line3">
+  
+  <div class="circle"></div>
+  <div class="circle1"></div>
+  <div class="circle2"></div>
+  <div class="circle3"></div>
+  
+  <style>
+
+    .back{
+			position: absolute;
+			top: 1.8em;
+			left: 2em;
+			font-size: 1em;
+			width: 2em;
+			height: 2em;
+		}
+
+    .title{
+      font-family: "Nunito", sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #000000;
+      text-align: center;
+      margin-top: 5rem;
+      margin-right: 1rem;
+    }
+
+    .Head {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 50%;
+      top: 75%;
+      transform: translate(-50%, -40%);
+      width: 40vw;
+      position: absolute;
+    }
+
+    .card{
+      width: 100%;
+    }
+
+    .Cardinner {
+      padding: 5%;
+    }
+
+    .crd {
+      position: absolute;
+      display: block;
+      width: 60vw;
+      -webkit-box-shadow: 0px 10px 80px -40px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 10px 80px -40px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 10px 80px -40px rgba(0, 0, 0, 0.75);
+    }
+
+    .signupFormFrom {
+      display: grid;
+      grid-template-columns: 20% auto;
+      width: 95%;
+      align-items: center;
+      padding-right: 5%;
+
+    }
+
+    .signupFormTo {
+      display: grid;
+      grid-template-columns: 15% auto;
+      width: 95%;
+      align-items: center;
+      padding-right: 5%;
+    }
+
+    .timings {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      width: 100%;
+    }
+
+    @media only screen and (height: 667px) {
+      .Head {
+        transform: translateY(35vh);
+      }
+    }
+  </style>
+</body>
+
+</html>
